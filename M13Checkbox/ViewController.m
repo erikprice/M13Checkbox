@@ -115,12 +115,22 @@
     customFrame.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     [self.view addSubview:customFrame];
 
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(25, CGRectGetMaxY(customFrame.frame) + 8., 100., 44.)];
+    [button setTitle:@"I receive taps" forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor orangeColor];
+    [button addTarget:self action:@selector(handleButtonTap) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+
     UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleRecognizerTap)];
     [self.view addGestureRecognizer:recognizer];
 }
 
+- (void)handleButtonTap {
+    NSLog(@"Button tapped");
+}
+
 - (void)handleRecognizerTap {
-    NSLog(@"Tapped");
+    NSLog(@"View tapped");
 }
 
 - (void)didReceiveMemoryWarning
