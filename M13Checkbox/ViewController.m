@@ -114,6 +114,13 @@
     customFrame.titleLabel.numberOfLines = 0;
     customFrame.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     [self.view addSubview:customFrame];
+
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleRecognizerTap)];
+    [self.view addGestureRecognizer:recognizer];
+}
+
+- (void)handleRecognizerTap {
+    NSLog(@"Tapped");
 }
 
 - (void)didReceiveMemoryWarning
